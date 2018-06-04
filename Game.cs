@@ -13,14 +13,14 @@ namespace ZuulCS
 			createRooms();
 			parser = new Parser();
 		}
-        private void createItems() 
+        private void createItems()
         {
             Item knife, medkit, rock;
 
             // create the items
-            knife = new Item();
-            medkit = new Item();
-            rock = new Item();
+            knife = new Item("Knife");
+            medkit = new Item("Medkit");
+            rock = new Item("Rock");
         }
 
 		private void createRooms()
@@ -54,7 +54,7 @@ namespace ZuulCS
             stair2f.setExit("west", upperhall);
 
             upperhall.setExit("east", stair2f);
-                
+
 			theatre.setExit("west", outside);
 
 			pub.setExit("east", outside);
@@ -130,7 +130,7 @@ namespace ZuulCS
                 case "health":
                     Console.WriteLine(player.Health);
                     break;
-            }
+		    }
 
 			return wantToQuit;
 		}
