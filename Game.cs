@@ -18,9 +18,9 @@ namespace ZuulCS
             Item knife, medkit, rock;
 
             // create the items
-            knife = new Item("Knife");
-            medkit = new Item("Medkit");
-            rock = new Item("Rock");
+            knife = new Item("Knife", 5);
+            medkit = new Item("Medkit", 10);
+            rock = new Item("Rock", 8);
         }
 
 		private void createRooms()

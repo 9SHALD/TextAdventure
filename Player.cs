@@ -38,6 +38,7 @@ namespace ZuulCS
                 Console.WriteLine("   ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝ ╚═╝╚══════╝╚═════╝");
                 Console.WriteLine("");
                 alive = false;
+                Pause();
                 return alive;
             } else {
                 alive = true;
@@ -67,10 +68,16 @@ namespace ZuulCS
                     Console.WriteLine("There is no door to " + direction + "!");
                 } else {
                     currentRoom = nextRoom;
-                    damage(2);
+                    damage(100);
                     Console.WriteLine(currentRoom.getLongDescription());
                 }
             }
+        }
+
+        public static void Pause() {
+            Console.Write("Press any key to continue . . .");
+            Console.ReadKey(true);
+            Environment.Exit(0);
         }
     }
 }
