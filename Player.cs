@@ -7,6 +7,14 @@ namespace ZuulCS
         private Room _currentRoom;
         private int health = 100;
         private bool alive = true;
+        private int roomDamage = 100;
+        private Inventory inventory;
+
+        internal Inventory Inventory { get => inventory; }
+
+        public Player() {
+            inventory = new Inventory();
+        }
 
         public Room currentRoom {
             get { return _currentRoom; }
@@ -38,7 +46,7 @@ namespace ZuulCS
                 Console.WriteLine("   ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝ ╚═╝╚══════╝╚═════╝");
                 Console.WriteLine("");
                 alive = false;
-                Pause();
+                Quit();
                 return alive;
             } else {
                 alive = true;
@@ -68,14 +76,14 @@ namespace ZuulCS
                     Console.WriteLine("There is no door to " + direction + "!");
                 } else {
                     currentRoom = nextRoom;
-                    damage(100);
+                    damage(roomDamage);
                     Console.WriteLine(currentRoom.getLongDescription());
                 }
             }
         }
 
-        public static void Pause() {
-            Console.Write("Press any key to continue . . .");
+        public static void Quit() {
+            Console.Write("Press any key to quit");
             Console.ReadKey(true);
             Environment.Exit(0);
         }

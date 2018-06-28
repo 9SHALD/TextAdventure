@@ -13,16 +13,7 @@ namespace ZuulCS
 			createRooms();
 			parser = new Parser();
 		}
-        private void createItems()
-        {
-            Item knife, medkit, rock;
-
-            // create the items
-            knife = new Item("Knife", 5);
-            medkit = new Item("Medkit", 10);
-            rock = new Item("Rock", 8);
-        }
-
+            
 		private void createRooms()
 		{
 			Room outside, theatre, pub, lab, office, mainhall, stair1f, stair2f, upperhall;
@@ -63,6 +54,8 @@ namespace ZuulCS
 			lab.setExit("east", office);
 
 			office.setExit("west", lab);
+
+            outside.Inventory.Add(new Rock("Rock",10));
 
 			player.currentRoom = outside;  // start game outside
 		}
@@ -150,5 +143,5 @@ namespace ZuulCS
 			Console.WriteLine("Your command words are:");
 			parser.showCommands();
 		}
-	}
+    }
 }
