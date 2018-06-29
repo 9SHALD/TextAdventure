@@ -8,12 +8,20 @@ namespace ZuulCS
     {
         protected string name;
         protected string description;
-        //private string name;
         private int weight;
 
-        public Item(string name, int weight) {
+        public Item(string name, int weight, string description) {
             this.name = name;
             this.weight = weight;
+            this.description = description;
+        }
+
+        public string getName {
+            get { return name; }
+        }
+
+        public string getDescription {
+            get { return description; }
         }
 
         public int getWeight {

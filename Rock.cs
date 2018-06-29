@@ -8,10 +8,9 @@ using ZuulCS;
 namespace ZuulCS {
     
 
-    class Rock : Item{
+    class Rock : Item {
 
-        public Rock(string name, int weight) : base(name, weight) {
-            description = "A rock the perfect size for throwing";
+        public Rock(string name, int weight, string description) : base(name, weight, description) {
         }
     }
 }

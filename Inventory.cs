@@ -5,7 +5,7 @@ using System.Text;
 namespace ZuulCS
 {
     class Inventory {
-        private List<Item> Items;
+        public List<Item> Items;
 
         public Inventory() {
             Items = new List<Item>();

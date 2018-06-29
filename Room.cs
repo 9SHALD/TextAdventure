@@ -73,18 +73,17 @@ namespace ZuulCS
 			return returnstring;
 		}
 
-		/**
+        /**
 	     * Return the room that is reached if we go from this room in direction
 	     * "direction". If there is no room in that direction, return null.
 	     */
-		public Room getExit(string direction)
-		{
-			if (exits.ContainsKey(direction)) {
-				return (Room)exits[direction];
-			} else {
-				return null;
-			}
+        public Room getExit(string direction) {
+            if (exits.ContainsKey(direction)) {
+                return (Room)exits[direction];
+            } else {
+                return null;
+            }
 
-		}
+        }
     }
 }

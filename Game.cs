@@ -55,7 +55,7 @@ namespace ZuulCS
 
 			office.setExit("west", lab);
 
-            outside.Inventory.Add(new Rock("Rock",10));
+            outside.Inventory.Add(new Rock("Rock",10,"A rock, perfect for throwing."));
 
 			player.currentRoom = outside;  // start game outside
 		}
@@ -118,6 +118,7 @@ namespace ZuulCS
 					break;
 				case "look":
                     Console.WriteLine(player.currentRoom.getLongDescription());
+                    inInv();
                     break;
                 //temp
                 case "health":
@@ -143,5 +144,13 @@ namespace ZuulCS
 			Console.WriteLine("Your command words are:");
 			parser.showCommands();
 		}
+
+        public void inInv() {
+            for (int i = 0; i < player.currentRoom.Inventory.Items.Count; i++) {
+                    Console.WriteLine(player.currentRoom.Inventory.Items[i].getName + " - " + player.currentRoom.Inventory.Items[i].getDescription);
+
+                }
+            }
+        }
     }
-}
+
