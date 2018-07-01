@@ -37,6 +37,7 @@ namespace ZuulCS
 
         public bool isAlive() {
             if (health < 1) {
+                Console.WriteLine("------------------------------------------------------");
                 Console.WriteLine("");
                 Console.WriteLine("██╗   ██╗ ██████╗ ██╗   ██╗    ██████╗ ██╗███████╗██████╗");
                 Console.WriteLine("╚██╗ ██╔╝██╔═══██╗██║   ██║    ██╔══██╗██║██╔════╝██╔══██╗");
@@ -45,6 +46,7 @@ namespace ZuulCS
                 Console.WriteLine("   ██║   ╚██████╔╝╚██████╔╝    ██████╔╝██║███████╗██████╔╝");
                 Console.WriteLine("   ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝ ╚═╝╚══════╝╚═════╝");
                 Console.WriteLine("");
+                Console.WriteLine("------------------------------------------------------");
                 alive = false;
                 Quit();
                 return alive;

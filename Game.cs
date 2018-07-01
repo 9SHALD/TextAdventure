@@ -108,21 +108,40 @@ namespace ZuulCS
 			string commandWord = command.getCommandWord();
 			switch (commandWord) {
 				case "help":
-					printHelp();
-					break;
+                    line();
+                    printHelp();
+                    line();
+                    break;
 				case "go":
-					player.goRoom(command);
-					break;
+                    line();
+                    player.goRoom(command);
+                    line();
+                    break;
 				case "quit":
 					wantToQuit = true;
 					break;
 				case "look":
+                    line();
                     Console.WriteLine(player.currentRoom.getLongDescription());
+                    inRoomInv();
+                    line();
+                    break;
+                case "inv":
+                case "inventory":
+                    line();
                     inInv();
+                    line();
+                    break;
+                case "take":
+                    line();
+                    takeItem(command);
+                    line();
                     break;
                 //temp
                 case "health":
+                    line();
                     Console.WriteLine(player.Health);
+                    line();
                     break;
 		    }
 
@@ -145,12 +164,42 @@ namespace ZuulCS
 			parser.showCommands();
 		}
 
-        public void inInv() {
-            for (int i = 0; i < player.currentRoom.Inventory.Items.Count; i++) {
+        public void inRoomInv() {
+            Console.WriteLine("Items in this room:");
+            if (player.currentRoom.Inventory.Items.Count > 0) {
+                for (int i = 0; i < player.currentRoom.Inventory.Items.Count; i++) {
                     Console.WriteLine(player.currentRoom.Inventory.Items[i].getName + " - " + player.currentRoom.Inventory.Items[i].getDescription);
+                }
+            } else {
+                Console.WriteLine("There are no items in this room");
+            }
+        }
 
+        public void inInv() {
+            Console.WriteLine("Items in your inventory:");
+            if (player.Inventory.Items.Count > 0) {
+                for (int i = 0; i < player.Inventory.Items.Count; i++) {
+                    Console.WriteLine(player.Inventory.Items[i].getName + " - " + player.Inventory.Items[i].getDescription);
+                }
+            } else {
+                Console.WriteLine("Nothing in your inventory");
+            }
+        }
+
+        private void takeItem(Command command) {
+            if (!command.hasSecondWord()) {
+                Console.WriteLine("You take all the items in the room and put them away");
+                for (int i = player.currentRoom.Inventory.Items.Count - 1; i >= 0; i--) {
+                    Item currentItem = player.currentRoom.Inventory.Items[i];
+                    Console.WriteLine("Added" + currentItem.getName);
+                    player.currentRoom.Inventory.transferItem(player.Inventory, currentItem.getName);
                 }
             }
         }
+
+        private void line() {
+            Console.WriteLine("------------------------------------------------------");
+        }
     }
+}
 
